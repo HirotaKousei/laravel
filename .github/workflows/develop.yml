@@ -5,11 +5,14 @@ on:
       - develop
 
 jobs:
-  job1:
-    name: Deploy
+  deploy:
+    name: Deploy to Develop Environment
     runs-on: ubuntu-latest
     steps:
-      - name: ssh and deploy
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: SSH and deploy
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -18,4 +21,10 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd https://engineer-pf.com/sample/
+            cd /path/to/your/project
+            git pull origin develop
+            composer install --no-interaction --prefer-dist --optimize-autoloader
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
