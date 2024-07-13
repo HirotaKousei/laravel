@@ -24,3 +24,5 @@
 #     RewriteEngine On
 #     RewriteRule ^(.*)$ public/ [L]
 # </IfModule>
+DirectoryIndex index.html index.php
+
