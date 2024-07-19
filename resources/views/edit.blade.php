@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card text-bg-dark">
-    <img src="{{ asset('/storage//30109534_m.jpg')}}" class="card-img opacity-25 .img-fluid" alt="画像">
+    <img src="{{ asset('/storage/30109534_m.jpg')}}" class="card-img opacity-25 .img-fluid" alt="画像">
     <div class="card-img-overlay">
         <div class="row justify-content-center">
             <div class="col-md-8">
