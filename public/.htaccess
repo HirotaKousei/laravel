@@ -26,7 +26,12 @@
 # </IfModule>
 DirectoryIndex index.html index.php
 
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteRule ^(.*)$ public/ [L]
+# </IfModule>
+
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule ^(.*)$ public/ [L]
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [QSA,L]
 </IfModule>
