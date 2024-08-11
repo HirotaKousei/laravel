@@ -35,3 +35,9 @@ DirectoryIndex index.html index.php
 # RewriteEngine On
 # RewriteRule ^(.*)$ public/$1 [QSA,L]
 # </IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Laravelのpublicフォルダをサイトトップ表示
+RewriteRule ^(.*)$ public/$1 [QSA,L]
+</IfModule>
