@@ -26,3 +26,7 @@
 # </IfModule>
 DirectoryIndex index.html index.php
 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ laravel/public/$1 [QSA,L]
+</IfModule>
